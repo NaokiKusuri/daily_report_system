@@ -35,10 +35,13 @@
         <c:when test="${i == page}">
            <c:out value="${i}" />&nbsp;
         </c:when>
+        <c:otherwise>
+            <a href="<c:url value='/reports/index?page=${i}' />"><c:out value="${i}" /></a>&nbsp;
+        </c:otherwise>
       </c:choose>
      </c:forEach>
   </div>
-  <p><a href="<c:url value='/repots/new' />">新規日報の登録</a></p>
+  <p><a href="<c:url value='/reports/new' />">新規日報の登録</a></p>
 
  </c:param>
 </c:import>
