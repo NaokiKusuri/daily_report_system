@@ -5,11 +5,11 @@
     <head>
         <meta charset="UTF-8">
         <title>日報管理システム</title>
-        <link rel="stylesheet" href = "<c:url value='/CSS/reset.css'/>">
-        <link rel= "stylesheet" href = "<c:url value='/CSS/style.css'/>">
+        <link rel="stylesheet" href="<c:url value='/CSS/reset.css' />">
+        <link rel="stylesheet" href="<c:url value='/CSS/style.css' />">
     </head>
     <body>
-         <div id="wrapper">
+        <div id="wrapper">
             <div id="header">
                 <div id="header_menu">
                     <h1><a href="<c:url value='/' />">日報管理システム</a></h1>&nbsp;&nbsp;&nbsp;
