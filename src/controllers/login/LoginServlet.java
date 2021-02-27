@@ -45,6 +45,7 @@ public class LoginServlet extends HttpServlet {
         rd.forward(request, response);
     }
 
+
     /**
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
      */
@@ -56,18 +57,18 @@ public class LoginServlet extends HttpServlet {
 
          Employee e = null;
 
-         if(code != null && !code.equals("") && plain_pass != null && !plain_pass.equals("")){
+         if(code != null && !code.equals("") && plain_pass != null && !plain_pass.equals("")) {
              EntityManager em = DBUtil.createEntityManager();
 
              String password = EncryptUtil.getPasswordEncrypt(
                      plain_pass,
                      (String)this.getServletContext().getAttribute("pepper")
                      );
-             try{
-                 e= em.createNamedQuery("checkLoginCodeAndPassword",Employee.class)
-                         .setParameter("code", code)
-                         .setParameter("pass", password)
-                         .getSingleResult();
+             try {
+                 e = em.createNamedQuery("checkLoginCodeAndPassword", Employee.class)
+                       .setParameter("code", code)
+                       .setParameter("pass", password)
+                       .getSingleResult();
              } catch(NoResultException ex) {}
 
              em.close();
@@ -75,7 +76,6 @@ public class LoginServlet extends HttpServlet {
              if(e != null) {
                  check_result = true;
              }
-
          }
 
          if(!check_result) {
@@ -88,8 +88,8 @@ public class LoginServlet extends HttpServlet {
          } else {
              request.getSession().setAttribute("login_employee", e);
 
-             request.getSession().setAttribute("flush","ログインしました。");
+             request.getSession().setAttribute("flush", "ログインしました。");
              response.sendRedirect(request.getContextPath() + "/");
          }
-       }
-    }
+     }
+}
